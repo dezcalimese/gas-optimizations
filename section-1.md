@@ -39,3 +39,15 @@
 - Ethereum technically has a preferred block limit and dynamic block limit, but conceptually it can be thought of as 30 million gas 
 - A future hard fork may change this number
 - Design smart contracts to what the current limits are
+## Gas Efficient Chains
+- Each EVM chain has a gas block limit which limits how large a transaction you can put on it
+  - You need to be able to size your transactions to make sure that they're going to fit inside of the block 
+- Alternative chains may advertise that they have better gas costs than Ethereum, which is usually the case not because of efficiency but a smaller number of users 
+  - Gas prices lower simply because there's less demand to take up space inside of the block
+- When comparing Ethereum to alternative chains, there are two things to keep in mind:
+  - One is the level of adoption, because that's going to affect the gas price and the better a chain is, the more adoption it's going to have, which is going to drive up the gas price
+  - Two is some blockchains are centralized, and whoever is running the blockchain could make the gas costs lower just by taking control of the ecosystem, making it more vulnerable to censorship
+## Storage Slots
+- The storage location of a variable doesn't change
+- Once you allocate a particular storage slot to belong to a certain variable, it does not get altered later on
+- These addresses/slots matter because this is how the EVM knows which value to access
