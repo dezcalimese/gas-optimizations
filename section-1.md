@@ -51,7 +51,6 @@
 - The storage location of a variable doesn't change
 - Once you allocate a particular storage slot to belong to a certain variable, it does not get altered later on
 - These addresses/slots matter because this is how the EVM knows which value to access
->>>>>>> 14fbf53a0a3a994d295ec65ffa16c79a34bf1702
 ## What are Opcodes
 - Ex: simple smart contract
 ```solidity
@@ -69,28 +68,20 @@ contract Test {
 - When the Solidity code is compiled, it's in Assembly opcodes 
 - Relevant part of above function in Opcodes:
 ```assembly
-/*
-0 is a storage location for `a`, look inside of location 0
-Take the value inside of location 0 and load those into memory 
-while removing this value (0).
-Once the values are loaded the 0 isn't relevant anymore
-*/
+; 0 is a storage location for `a`, look inside of location 0
+; Take the value inside of location 0 and load those into memory 
+; while removing this value (0).
+; Once the values are loaded the 0 isn't relevant anymore
 PUSH 0 
-/* 
-When LOAD operation is executed, pull in what is stored on location 0 (which is 3) 
-*/
+; When LOAD operation is executed, pull in what is stored on location 0 (which is 3) 
 LOAD
-/* 
-Load in the number that we're trying to add it with
-Essentially push the number on top of a stack so when the ADD operation
-comes along, it knows to only look at the top two items inside of the stack
-in order to carry out the operation
-*/
+; Load in the number that we're trying to add it with
+; Essentially push the number on top of a stack so when the ADD operation
+; comes along, it knows to only look at the top two items inside of the stack
+; in order to carry out the operation
 PUSH 1
-/*
-Specifically only programmed to look at the top two elements of the stack
-Pops off the two items and adds them together as one
-*/
+; Specifically only programmed to look at the top two elements of the stack
+; Pops off the two items and adds them together as one
 ADD 
 ```
 - More complicated example: 5x + 3y (assume x = 10 and y = 20)
